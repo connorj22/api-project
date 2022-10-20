@@ -19,15 +19,19 @@ localhost:3000/players
 ### Search by player full name
 
 localhost:3000/players/name/firstname-lastname
+example: localhost:3000/players/name/lebron-james
 
 ### Search by jersey number
 
 localhost:3000/players/jersey/jerseyNumber
+example: localhost:3000/players/jersey/6
 
 ### Search by Team
 
 localhost:3000/players/team/Team Name
+example: localhost:3000/players/team/lakers
 
 ### Search by position
 
 localhost:3000/players/position/Position
+example: localhost:3000/players/position/Forward
