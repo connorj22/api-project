@@ -7,4 +7,5 @@ router.get("/", (req, res) => res.send("this is the api root"))
 
 router.use("/players", playersRoutes)
 
+
 export default router
