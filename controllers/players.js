@@ -25,6 +25,51 @@ export const getPlayer = async (req, res) => {
   }
 };
 
+export const getPlayersByNumber = async (req, res) => {
+  try {
+    const player = await Player.find({JERSEY: req.params.JERSEY}).populate("JERSEY");
+
+    if (player) {
+      return res.json(player);
+    }
+
+    res.status(404).json({ message: "Player not found!" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const getPlayersByPosition = async (req, res) => {
+  try {
+    const player = await Player.find({POSITION: req.params.POSITION}).populate("POSITION");
+
+    if (player) {
+      return res.json(player);
+    }
+
+    res.status(404).json({ message: "Player not found!" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const getPlayersByTeam = async (req, res) => {
+  try {
+    const player = await Player.find({TEAM_NAME: req.params.TEAM_NAME}).populate("TEAM_NAME");
+
+    if (player) {
+      return res.json(player);
+    }
+
+    res.status(404).json({ message: "Player not found!" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
+  }
+};
+
 export const createPlayer = async (req, res) => {
   try {
     const player = new Player(req.body);
@@ -38,7 +83,7 @@ export const createPlayer = async (req, res) => {
 
 export const updatePlayer = async (req, res) => {
   try {
-    const player = await Player.findOneAndUpdate({PLAYER_SLUG: req.params.PLAYER_SLUG});
+    const player = await Player.findOneAndUpdate(req.params.PLAYER_SLUG, req.body);
     res.status(201).json(player);
   } catch (error) {
     console.error(error);
