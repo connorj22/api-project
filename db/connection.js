@@ -11,8 +11,8 @@ mongoose.connection.on("disconnected", () => {
   console.log(chalk.bold("disconnected from MongoDB"))
 })
 
-mongoose.connection.on("error", () => {
-  console.log(chalk.red(`MongoDB connection Eroor: ${err}`))
+mongoose.connection.on("error", (err) => {
+  console.log(chalk.red(`MongoDB connection Error: ${err}`))
 })
 
 export default mongoose.connection
