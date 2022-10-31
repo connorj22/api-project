@@ -17,7 +17,7 @@ app.use("/", routes)
 db.on("connected", () => {
   console.clear()
   console.log(chalk.blue("connected to mongoDB"))
-  app.listen(PORT, () => {
-    console.log("express server running in dev")
-  })
+  const port = process.env.PORT || 3000
+
+app.listen(port, () => console.log(`app listening on port ${port}`))
 })

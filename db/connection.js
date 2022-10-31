@@ -3,8 +3,8 @@ import chalk from "chalk";
 
 mongoose.set('returnOriginal', false)
 
-mongoose.connect("mongodb://127.0.0.1:27017/apiProject").catch((err) =>
-{ console.log(`error ${err.message}`) })
+const url = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/apiProject'
+mongoose.connect(url , mongooseConfig)
 
 mongoose.connection.on("disconnected", () => {
   console.log(chalk.bold("disconnected from MongoDB"))
