@@ -14,10 +14,10 @@ app.use(logger("dev"))
 
 app.use("/", routes)
 
+const port = process.env.PORT || 3000
+
 db.on("connected", () => {
   console.clear()
   console.log(chalk.blue("connected to mongoDB"))
-  const port = process.env.PORT || 3000
-
 app.listen(port, () => console.log(`app listening on port ${port}`))
 })
